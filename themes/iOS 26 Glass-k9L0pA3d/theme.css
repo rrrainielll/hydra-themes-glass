@@ -1,0 +1,297 @@
+/* iOS 26 Glass - minimalist glassmorphism inspired by recent iOS UI */
+:root {
+  --frost: rgba(255, 255, 255, 0.14);
+  --frost-strong: rgba(255, 255, 255, 0.22);
+  --frost-soft: rgba(255, 255, 255, 0.08);
+  --frost-border: rgba(255, 255, 255, 0.26);
+  --ink: #0a0f1b;
+  --ink-soft: #111827;
+  --text: #eef2ff;
+  --muted: #cdd5e8;
+  --accent: #0ea5e9;
+  --accent-2: #60a5fa;
+  --shadow-soft: 0 12px 36px rgba(5, 12, 26, 0.18);
+  --shadow-strong: 0 18px 48px rgba(5, 12, 26, 0.22);
+  --blur: blur(14px) saturate(140%) brightness(110%);
+  --pill: 16px;
+  --rounded: 20px;
+}
+
+body {
+  color: var(--text);
+  font-family: "SF Pro Display", "Inter", "Segoe UI", system-ui, sans-serif;
+  background-color: #070c16;
+  letter-spacing: -0.01em;
+}
+
+#root {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(14, 165, 233, 0.26) 0%, transparent 30%),
+    radial-gradient(circle at 80% 25%, rgba(96, 165, 250, 0.22) 0%, transparent 28%),
+    linear-gradient(135deg, #0b1323 0%, #0c1527 50%, #0a101d 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+main,
+.container__content {
+  background: transparent;
+}
+
+.header,
+.sidebar,
+.home__content,
+.container__content,
+.game-item,
+.download-group__item,
+.settings__content,
+.friends-box__box,
+.user-stats__box,
+.recent-games__box,
+.catalogue__filters-container,
+.content-sidebar,
+.modal,
+.theme-card,
+.bottom-panel {
+  background: var(--frost);
+  border: 1px solid var(--frost-border);
+  border-radius: var(--rounded);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+  box-shadow: var(--shadow-soft);
+}
+
+.header {
+  padding: 18px 24px;
+  margin: 12px 12px 0 12px;
+}
+
+.header__search,
+.text-field-container__text-field--dark,
+.text-field-container__text-field--primary {
+  background: var(--frost-soft);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.sidebar {
+  margin: 12px;
+  padding: 14px;
+  width: 320px;
+  min-width: 320px;
+  color: var(--text);
+}
+
+.sidebar__menu {
+  gap: 6px;
+}
+
+.sidebar__menu-item {
+  border-radius: var(--pill);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  color: var(--muted);
+}
+
+.sidebar__menu-item:hover {
+  transform: translateY(-2px);
+  background: var(--frost-soft);
+}
+
+.sidebar__menu-item.sidebar__menu-item--active {
+  background: linear-gradient(120deg, rgba(14, 165, 233, 0.25), rgba(96, 165, 250, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: white;
+  box-shadow: 0 10px 26px rgba(14, 165, 233, 0.22);
+}
+
+.sidebar-profile,
+.sidebar-profile__button {
+  border-radius: var(--rounded);
+  background: var(--frost-soft);
+  border: 1px solid var(--frost-border);
+}
+
+.container__content {
+  margin: 10px;
+  padding: 18px;
+  color: var(--text);
+}
+
+.home__content {
+  gap: 12px;
+}
+
+.game-item,
+.download-group__item {
+  min-height: 120px;
+  border-radius: var(--rounded);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.game-item:hover,
+.download-group__item:hover {
+  transform: translateY(-2px) scale(1.005);
+  box-shadow: var(--shadow-strong);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.button,
+.settings-appearance__button,
+.button--primary,
+.button--outline,
+.select-field__option {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  color: var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.button--primary,
+.settings-appearance__button {
+  background: linear-gradient(120deg, #0ea5e9, #60a5fa);
+  box-shadow: 0 10px 24px rgba(14, 165, 233, 0.24);
+  color: white;
+  border: none;
+}
+
+.button:hover,
+.settings-appearance__button:hover,
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(14, 165, 233, 0.26);
+}
+
+.button:active,
+.settings-appearance__button:active {
+  transform: translateY(0);
+}
+
+.badge,
+.tag,
+.pagination__button {
+  background: var(--frost-soft);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  color: var(--text);
+  backdrop-filter: var(--blur);
+  -webkit-backdrop-filter: var(--blur);
+}
+
+.title-bar {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+}
+
+.hero,
+.profile-hero__hero-panel {
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--frost-border);
+  border-radius: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero__content {
+  justify-content: center;
+}
+
+.game-card,
+.gallery-slider__media,
+.gallery-slider__preview-image {
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: var(--frost-soft);
+}
+
+.catalogue__filters-container .text-field-container__text-field--dark,
+.catalogue__filters-container .text-field-container__text-field--primary {
+  border-radius: 14px;
+}
+
+.achievement-panel,
+.achievements__item {
+  background: var(--frost-soft);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--rounded);
+  color: var(--text);
+}
+
+.bottom-panel {
+  padding: 12px 18px;
+  color: var(--muted);
+}
+
+a,
+label,
+p,
+small,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+span {
+  color: var(--text);
+}
+
+.sidebar__section-title,
+.download-group__header,
+h2,
+h3 {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.home__cards {
+  gap: 12px;
+}
+
+.game-card__title,
+.profile-hero__display-name {
+  color: white;
+}
+
+.progress-bar .progress-fill {
+  background: linear-gradient(120deg, #0ea5e9, #60a5fa);
+}
+
+.user-library-game__playtime,
+.user-library-game__overlay {
+  background: var(--frost-soft);
+  border-radius: var(--pill);
+}
+
+.toast,
+.notification {
+  background: var(--frost-strong);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-soft);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.18));
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.55), rgba(96, 165, 250, 0.38));
+}
